@@ -1,0 +1,61 @@
+# Documented monotonic sub-score mappings (Section I.5). Every table is ordered worst -> best;
+# greenhome/config.py asserts non-decreasing scores along that order at load time.
+version: "1.0"
+
+energy_efficiency:            # I.5.1 midpoint of the SAP range of each EPC band, rounded
+  rule: "EPC band -> midpoint of its SAP point range"
+  order: [G, F, E, D, C, B, A]
+  scores: {G: 11, F: 30, E: 47, D: 62, C: 75, B: 86, A: 96}
+
+consumption_intensity:        # I.5.2 linear between the anchors, in kWh/m2/yr of purchased energy
+  rule: "100 if EUI <= best; 0 if EUI >= worst; linear in between"
+  eui_best: 40
+  eui_worst: 300
+
+insulation:                   # I.5.3 ratio to a best-practice U-value, s = min(100, 100 * U_ref / U)
+  rule: "s_element = min(100, 100 * U_ref / U); s_INS = wall_weight*s_wall + roof_weight*s_roof"
+  wall_u_ref: 0.28
+  roof_u_ref: 0.16
+  wall_weight: 0.55
+  roof_weight: 0.45
+  wall_insulation_order: [none, partial, insulated]
+
+heating_system:               # I.5.4 frozen table (version 1.0); derivation in docs/SCORING_METHOD.md
+  rule: "fixed table from a 50/50 composite of cost and carbon per kWh of useful heat"
+  order: [electric_direct, electric_storage, gas_noncondensing_boiler, gas_condensing_boiler, air_source_heat_pump]
+  scores:
+    electric_direct: 35
+    electric_storage: 35
+    gas_noncondensing_boiler: 50
+    gas_condensing_boiler: 60
+    air_source_heat_pump: 100
+  unsupported: [other_fuel]
+
+windows_glazing:              # I.5.5 s = 100 * U_ref / U
+  rule: "s = min(100, 100 * 1.4 / U_glazing)"
+  u_ref: 1.4
+  order: [single, secondary, double_pre2002, double_post2002, triple]
+
+renewable_energy:             # I.5.6 s = min(100, 25 * kWp)
+  rule: "s = min(100, points_per_kwp * solar_kwp); no PV -> 0"
+  points_per_kwp: 25
+
+smart_energy_management:      # I.5.7 ordinal scale of heating controls
+  rule: "fixed ordinal table of heating controls"
+  order: [none, programmer_only, programmer_thermostat, programmer_thermostat_trvs, smart_thermostat, smart_zoned]
+  scores:
+    none: 0
+    programmer_only: 25
+    programmer_thermostat: 50
+    programmer_thermostat_trvs: 65
+    smart_thermostat: 85
+    smart_zoned: 100
+
+improvement_hints:
+  energy_efficiency: "A new energy assessment after improvements would update the recorded rating."
+  consumption_intensity: "Lower purchased energy per square metre raises this component."
+  insulation: "Wall and roof insulation raise this component."
+  heating_system: "A more efficient, lower-carbon heating system raises this component."
+  windows_glazing: "Better-performing glazing raises this component."
+  renewable_energy: "On-site solar generation raises this component."
+  smart_energy_management: "Smarter heating controls raise this component."

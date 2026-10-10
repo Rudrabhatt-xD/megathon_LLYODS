@@ -1,0 +1,186 @@
+# Synthetic world parameters (Section G). Everything here is [ASSUMPTION] unless a source is named.
+# The generator reads ONLY this file; it never imports the runtime engines.
+version: "1.0"
+seed: 42
+n_properties: 5000
+window: {start: "2024-10", months: 24}
+valuation_date: "2026-09-30"
+
+customers:
+  n_individual: 4200
+  n_multi_owner: 150
+  multi_owner_min: 2
+  multi_owner_max: 5
+  n_portfolio_landlord: 10
+
+regions:
+  weights: {london: 0.13, south_east: 0.16, east_of_england: 0.11, south_west: 0.10, west_midlands: 0.10, east_midlands: 0.09, north_west: 0.12, yorkshire_humber: 0.09, north_east: 0.04, wales: 0.06}
+
+property_type:
+  base: {detached: 0.18, semi_detached: 0.27, end_terrace: 0.10, mid_terrace: 0.18, bungalow: 0.07, flat: 0.20}
+  london_override: {flat: 0.50, detached: 0.05}
+  landlord_multiplier: {flat: 2.0, mid_terrace: 1.5}
+flat_position: {ground: 0.33, mid: 0.34, top: 0.33}
+
+age_band:
+  base: {pre_1919: 0.20, "1919_1944": 0.15, "1945_1964": 0.18, "1965_1982": 0.20, "1983_1995": 0.09, "1996_2011": 0.11, "2012_plus": 0.07}
+  flat_shift: {"1965_1982": 0.10, "2012_plus": 0.10}
+
+floor_area:
+  median: {detached: 140, semi_detached: 90, end_terrace: 85, mid_terrace: 80, bungalow: 75, flat: 60}
+  sigma: 0.25
+  clip: [25, 450]
+bedrooms: {area_per_bedroom: 28, noise_sd: 0.6, clip: [1, 6], flat_clip: [1, 3]}
+
+wall_type:
+  pre_1919: {solid: 0.92, cavity: 0.08}
+  "1919_1944": {solid: 0.40, cavity: 0.60}
+  "1945_1964": {cavity: 0.95, timber_system: 0.05}
+  "1965_1982": {cavity: 0.95, timber_system: 0.05}
+  "1983_1995": {cavity: 0.85, timber_system: 0.15}
+  "1996_2011": {cavity: 0.85, timber_system: 0.15}
+  "2012_plus": {cavity: 0.85, timber_system: 0.15}
+wall_insulation:
+  solid_insulated: 0.10
+  cavity_pre_1983: {insulated: 0.65, partial: 0.05, none: 0.30}
+  cavity_1983_1995_insulated: 0.85
+roof_type:
+  house: {pitched_loft: 0.93, flat_roof: 0.07}
+  top_flat: {pitched_loft: 0.60, flat_roof: 0.40}
+loft_mm: {0: 0.05, 25: 0.05, 50: 0.10, 100: 0.20, 150: 0.15, 200: 0.15, 270: 0.25, 300: 0.05}
+loft_mm_2012_plus: 300
+glazing:
+  pre_1919: {single: 0.15, secondary: 0.08, double_pre2002: 0.27, double_post2002: 0.48, triple: 0.02}
+  default: {single: 0.05, secondary: 0.0, double_pre2002: 0.30, double_post2002: 0.55, triple: 0.02}   # renormalised
+  "2012_plus": {double_post2002: 0.9, triple: 0.1}
+heating_type:
+  base: {gas_condensing_boiler: 0.62, gas_noncondensing_boiler: 0.15, electric_storage: 0.08, electric_direct: 0.04, air_source_heat_pump: 0.05, other_fuel: 0.01}
+  flat_multiplier: {electric_storage: 2.5}
+  new_build_multiplier: {air_source_heat_pump: 3.0}
+gas_connection_non_gas: {house: 0.4, flat: 0.2}
+gas_cooking_share: 0.6
+solar: {house_share: 0.07, new_build_share: 0.2, kwp_range: [2.5, 5.0]}
+smart_controls:
+  wet: {none: 0.05, programmer_only: 0.10, programmer_thermostat: 0.35, programmer_thermostat_trvs: 0.30, smart_thermostat: 0.15, smart_zoned: 0.05}
+  electric: {none: 0.4, programmer_only: 0.6}
+roof_orientation: [S, SE, SW, E, W, N]
+roof_shading: {none: 0.6, some: 0.3, heavy: 0.1}
+outdoor_space: {house: 0.95, bungalow: 0.95, flat_ground: 0.4, flat_other: 0.1}
+listed_building: {pre_1919: 0.08, "1919_1944": 0.01}
+conservation_area: {pre_1919: 0.25, "1919_1944": 0.10, default: 0.03}
+
+hidden:
+  occupants_p: 0.45
+  behaviour_mean: 0.66        # calibrated to the Ofgem medium gas TDCV (G.11); covers intermittent heating and internal gains
+  behaviour_sigma: 0.20
+  ach: {pre_1919: [0.9, 1.4], "1919_1944": [0.7, 1.1], "1945_1964": [0.7, 1.1], "1965_1982": [0.7, 1.1], "1983_1995": [0.5, 0.8], "1996_2011": [0.5, 0.8], "2012_plus": [0.3, 0.5]}
+  boiler_eff: {condensing: [0.85, 0.03], noncondensing: [0.72, 0.04], clip: [0.6, 0.92]}
+  scop: {mean: 2.8, sd: 0.35, clip: [2.0, 4.0], inadequate_penalty: 0.3, dhw_offset: 0.3}
+  smart_effect: [0.03, 0.12]
+  pv_yield_base: {london: 950, south_east: 950, south_west: 950, east_of_england: 950, east_midlands: 900, west_midlands: 900, wales: 900, north_west: 850, yorkshire_humber: 850, north_east: 850}
+  pv_yield_noise_sd: 0.05
+  orientation_factor: {S: 1.0, SE: 0.95, SW: 0.95, E: 0.80, W: 0.80, N: 0.60}
+  shading_factor: {none: 1.0, some: 0.85, heavy: 0.6}
+  self_consumption: [0.30, 0.55]
+  self_consumption_cap: 0.6
+  realisation_fabric: [0.6, 1.0]
+  realisation_smart: [0.5, 1.0]
+  assessor_noise_sd: 3.0
+  u_noise_sd: 0.10
+  appliance_noise_sigma: 0.15
+  meter_noise_sd: 0.04
+
+physics:
+  storey_height: 2.5
+  storeys: {detached: 2, semi_detached: 2, end_terrace: 2, mid_terrace: 2, bungalow: 1, flat: 1}
+  exposure: {detached: 1.0, bungalow: 1.0, semi_detached: 0.75, end_terrace: 0.75, mid_terrace: 0.5, flat: 0.5}
+  window_share_of_floor: 0.18
+  min_wall_area: 10
+  vent_factor: 0.33
+  u_wall:
+    solid: {none: 2.0, partial: 1.0, insulated: 0.35}
+    cavity: {none: 1.5, partial: 1.0, insulated: 0.55}
+    cavity_insulated_new: {"1996_2011": 0.45, "2012_plus": 0.28}
+    timber_system: {default: 0.45, "1996_2011": 0.35, "2012_plus": 0.28}
+  u_loft: {0: 2.3, 25: 1.0, 50: 0.68, 100: 0.40, 150: 0.30, 200: 0.21, 270: 0.16, 300: 0.14}
+  u_flat_roof: {pre_1983: 1.5, "1983_2011": 0.35, "2012_plus": 0.18}
+  u_floor: {pre_1996: 0.7, "1996_plus": 0.25}
+  u_glazing: {single: 4.8, secondary: 2.9, double_pre2002: 2.8, double_post2002: 2.0, triple: 1.4}
+  hdd_reference: 2100
+  hdd_region_factor: {north_east: 1.10, north_west: 1.05, yorkshire_humber: 1.06, east_midlands: 1.03, west_midlands: 1.03, east_of_england: 1.00, london: 0.92, south_east: 0.97, south_west: 0.93, wales: 1.02}
+  weather_year_sd: 0.05
+  heating_month_shares: [0.17, 0.15, 0.13, 0.09, 0.05, 0.02, 0.01, 0.01, 0.03, 0.08, 0.12, 0.15]
+  dhw_month_factor: {winter: 1.1, summer: 0.9}       # Dec-Feb / Jun-Aug
+  appliance_month_factor: {winter: 1.08, summer: 0.92}   # Nov-Feb / May-Aug
+  pv_month_shares: [0.03, 0.05, 0.08, 0.11, 0.13, 0.13, 0.13, 0.11, 0.09, 0.06, 0.04, 0.04]
+  dhw_base: 400
+  dhw_per_occupant: 450
+  cooking_gas: 300
+  cooking_elec: 350
+  appliances: {base: 1000, per_occupant: 350, per_m2: 6}
+  fabric_inadequate: {min_loft_mm: 100, max_wall_u: 0.6}
+
+retrofits:
+  in_window_share: 0.15
+  in_window_months: [9, 15]     # completion month index within the 24-month window (1-based, inclusive)
+  pre_window_share: 0.10
+  pre_window_years: [2015, 2024]
+  measure_weights: {loft_insulation: 0.25, cavity_wall_insulation: 0.20, double_glazing: 0.15, smart_thermostat: 0.15, air_source_heat_pump: 0.10, solar_pv: 0.10, solid_wall_insulation: 0.05}
+  install_kwp: {detached: 4.0, semi_detached: 3.5, end_terrace: 3.5, bungalow: 3.5, mid_terrace: 3.0}
+  loft_target_mm: 270
+  loft_adequate_mm: 200
+  reassess_after_retrofit_prob: 0.45   # [DESIGN] share of retrofits followed by a new rating, tuned so ~10% of ratings are stale (G.6.9)
+
+rating:
+  standard: {occupants: 2.4, hdd: 2100, eff_condensing: 0.85, eff_noncondensing: 0.72, scop: 2.8, eff_resistive: 1.0, eff_other: 0.8, pv_yield: 900}
+  prices_pence: {gas: 3.5, electricity: 13.0, storage_electricity: 7.0, other_fuel: 5.0}
+  price_scale: 1.37             # calibration knob for the A-C share (G.11); 1.0 gave 75% A-C, 1.37 gives ~50%
+  pv_credit_share: 0.5
+  rating_date_years: 10
+  bands: {A: 92, B: 81, C: 69, D: 55, E: 39, F: 21, G: 1}
+
+sales:
+  poisson_mean: 1.2
+  max_sales: 3
+  first_month: "2012-01"
+  last_month: "2026-06"
+  min_gap_months: 18
+  region_base_gbp_per_m2: {london: 7000, south_east: 4200, east_of_england: 3800, south_west: 3600, west_midlands: 2900, east_midlands: 2800, north_west: 2600, yorkshire_humber: 2500, wales: 2400, north_east: 2000}
+  type_effect: {detached: 0.08, semi_detached: 0.0, end_terrace: -0.03, mid_terrace: -0.05, bungalow: 0.05, flat: -0.10}
+  age_effect: {pre_1919: 0.05, "1919_1944": 0.02, "1945_1964": -0.03, "1965_1982": -0.04, "1983_1995": -0.02, "1996_2011": 0.0, "2012_plus": 0.03}
+  bedroom_effect: 0.03
+  index_start_level: 0.60
+  index_slope_sd: 0.15
+  band_premium: {A: 0.03, B: 0.03, C: 0.015, D: 0.0, E: -0.015, F: -0.03, G: -0.06}     # hidden truth
+  region_premium_mult: {north_east: 1.5, north_west: 1.3, yorkshire_humber: 1.3, wales: 1.2, east_midlands: 1.1, west_midlands: 1.1, east_of_england: 0.8, south_west: 0.9, south_east: 0.6, london: 0.5}
+  noise_sd: 0.10
+  avm_noise_sd: 0.05
+  value_missing_share: 0.05
+
+issues:                        # G.7 injected data-quality problems
+  missing_glazing: 0.08
+  missing_wall_insulation: 0.05
+  missing_energy_rating: 0.10
+  missing_floor_area: 0.03
+  missing_roof_orientation: 0.05
+  missing_outdoor_space: 0.04
+  missing_region: 0.01
+  no_usage: 0.06
+  partial_usage: 0.10
+  partial_usage_months: [3, 8]
+  single_missing_months: 0.03
+  duplicate_months_properties: 0.01
+  bad_reading_rows: 0.005
+  conflict_hp_gas: 0.01
+  conflict_solar_no_kwp: 0.01
+  conflict_bedrooms_area: 0.005
+
+calibration_targets:           # G.11
+  median_elec_gas_heated: {value: 2500, tolerance_pct: 25, source: "Ofgem medium TDCV from 1 July 2026"}
+  median_gas_gas_heated: {value: 9500, tolerance_pct: 25, source: "Ofgem medium TDCV from 1 July 2026"}
+  share_a_to_c: {value: 0.50, tolerance_abs: 0.10, source: "Nationwide (June 2026) citing English Housing Survey: 53% of owner-occupied stock A-C"}
+  stale_rating_share: {value: 0.10, tolerance_abs: 0.05, source: "design"}
+
+disclosure: >-
+  All records are synthetic. Labels are produced by a documented simulator; agreement between our
+  models and these labels does not establish real-world predictive accuracy.

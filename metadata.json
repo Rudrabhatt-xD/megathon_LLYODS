@@ -1,0 +1,8 @@
+{
+  "name": "Remix GreenHome Retrofit \u0026 Portfolio Insights",
+  "description": "Enterprise-grade green home retrofit analytics, portfolio energy intelligence, and what-if scenario engine.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

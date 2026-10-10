@@ -1,0 +1,20 @@
+version: "1.0"
+weights:            # OFFICIAL — do not change
+  energy_efficiency: 0.25
+  consumption_intensity: 0.20
+  insulation: 0.15
+  heating_system: 0.15
+  windows_glazing: 0.10
+  renewable_energy: 0.10
+  smart_energy_management: 0.05
+classification:     # OFFICIAL bands on the rounded score (lower bound inclusive)
+  - {min: 80, label: "Highly efficient"}
+  - {min: 65, label: "Good"}
+  - {min: 50, label: "Moderate"}
+  - {min: 30, label: "Poor"}
+  - {min: 0, label: "Very poor"}
+flagged_classes: ["Poor", "Very poor"]
+status:             # [DESIGN] I.8 completeness thresholds
+  confirmed_min: 1.0
+  provisional_min: 0.6
+  missing_subscore_fallback: 50   # [ASSUMPTION] neutral midpoint, used only when no cohort median exists; tagged default, counted as unobserved

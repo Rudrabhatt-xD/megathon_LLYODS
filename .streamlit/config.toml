@@ -1,0 +1,15 @@
+# Dashboard theme: "greenhome" (green on soft off-white, white cards). Colours are mirrored in app/common.py (THEME).
+[theme]
+base = "light"
+primaryColor = "#059669"
+backgroundColor = "#F8FAFC"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#0F172A"
+font = "sans serif"
+
+[client]
+showSidebarNavigation = false   # the sidebar navigation is drawn by app/common.py
+toolbarMode = "minimal"
+
+[browser]
+gatherUsageStats = false

@@ -1,0 +1,440 @@
+{
+ "by_cohort": {
+  "1919_1944|bungalow": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 100.0,
+   "n": 34,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat_trvs",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1919_1944|detached": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 85,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "none",
+   "wall_type": "cavity"
+  },
+  "1919_1944|end_terrace": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 57,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1919_1944|flat": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 112,
+   "roof_type": "none_dwelling_above",
+   "smart_controls": "programmer_thermostat_trvs",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1919_1944|mid_terrace": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 83,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1919_1944|semi_detached": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 142,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "none",
+   "wall_type": "cavity"
+  },
+  "1945_1964|bungalow": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 48,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1945_1964|detached": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 112,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1945_1964|end_terrace": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 57,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1945_1964|flat": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 149,
+   "roof_type": "none_dwelling_above",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1945_1964|mid_terrace": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 127,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat_trvs",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1945_1964|semi_detached": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 154,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat_trvs",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1965_1982|bungalow": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 38,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat_trvs",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1965_1982|detached": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 108,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1965_1982|end_terrace": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 59,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1965_1982|flat": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 231,
+   "roof_type": "none_dwelling_above",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1965_1982|mid_terrace": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 108,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat_trvs",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1965_1982|semi_detached": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 183,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1983_1995|bungalow": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 150.0,
+   "n": 27,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1983_1995|detached": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 200.0,
+   "n": 45,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat_trvs",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1983_1995|end_terrace": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 26,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1983_1995|flat": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 65,
+   "roof_type": "none_dwelling_above",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1983_1995|mid_terrace": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 58,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat_trvs",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1983_1995|semi_detached": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 74,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1996_2011|bungalow": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 21,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1996_2011|detached": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 53,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat_trvs",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1996_2011|end_terrace": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 41,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1996_2011|flat": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 75,
+   "roof_type": "none_dwelling_above",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1996_2011|mid_terrace": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 55,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "1996_2011|semi_detached": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 107,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "2012_plus|bungalow": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 300.0,
+   "n": 14,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat_trvs",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "2012_plus|detached": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 300.0,
+   "n": 42,
+   "roof_type": "pitched_loft",
+   "smart_controls": "smart_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "2012_plus|end_terrace": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 300.0,
+   "n": 26,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat_trvs",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "2012_plus|flat": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 300.0,
+   "n": 116,
+   "roof_type": "none_dwelling_above",
+   "smart_controls": "smart_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "2012_plus|mid_terrace": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 300.0,
+   "n": 55,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "2012_plus|semi_detached": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 300.0,
+   "n": 65,
+   "roof_type": "pitched_loft",
+   "smart_controls": "smart_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "pre_1919|bungalow": {
+   "glazing": "double_pre2002",
+   "loft_insulation_mm": 270.0,
+   "n": 36,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "none",
+   "wall_type": "solid"
+  },
+  "pre_1919|detached": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 97,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "none",
+   "wall_type": "solid"
+  },
+  "pre_1919|end_terrace": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 58,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "none",
+   "wall_type": "solid"
+  },
+  "pre_1919|flat": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 131,
+   "roof_type": "none_dwelling_above",
+   "smart_controls": "programmer_only",
+   "wall_insulation": "none",
+   "wall_type": "solid"
+  },
+  "pre_1919|mid_terrace": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 135,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "none",
+   "wall_type": "solid"
+  },
+  "pre_1919|semi_detached": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "n": 202,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "none",
+   "wall_type": "solid"
+  }
+ },
+ "by_type": {
+  "bungalow": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat_trvs",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "detached": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "end_terrace": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "flat": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "roof_type": "none_dwelling_above",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "mid_terrace": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  },
+  "semi_detached": {
+   "glazing": "double_post2002",
+   "loft_insulation_mm": 270.0,
+   "roof_type": "pitched_loft",
+   "smart_controls": "programmer_thermostat",
+   "wall_insulation": "insulated",
+   "wall_type": "cavity"
+  }
+ },
+ "global": {
+  "glazing": "double_post2002",
+  "loft_insulation_mm": 270.0,
+  "roof_type": "pitched_loft",
+  "smart_controls": "programmer_thermostat",
+  "wall_insulation": "insulated",
+  "wall_type": "cavity"
+ }
+}

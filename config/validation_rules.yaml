@@ -1,0 +1,83 @@
+# Validation rules (Section H.2). Rule ids are used in warnings and tests.
+version: "1.0"
+
+required_columns:
+  customers: [customer_id, customer_type]
+  properties: [property_id, customer_id, property_type, heating_type, data_origin]
+  energy_usage: [property_id, month, electricity_import_kwh, gas_kwh]
+  retrofit_history: [property_id, measure_id, completion_date]
+  sales_history: [sale_id, property_id, sale_date, price, energy_rating_at_sale]
+
+enums:
+  customer_type: [individual, multi_owner, portfolio_landlord, demo]
+  region: [north_east, north_west, yorkshire_humber, east_midlands, west_midlands, east_of_england, london, south_east, south_west, wales]
+  property_type: [detached, semi_detached, end_terrace, mid_terrace, bungalow, flat]
+  flat_position: [ground, mid, top]
+  age_band: [pre_1919, "1919_1944", "1945_1964", "1965_1982", "1983_1995", "1996_2011", "2012_plus"]
+  energy_rating: [A, B, C, D, E, F, G]
+  wall_type: [solid, cavity, timber_system]
+  wall_insulation: [none, partial, insulated]
+  roof_type: [pitched_loft, flat_roof, none_dwelling_above]
+  glazing: [single, secondary, double_pre2002, double_post2002, triple]
+  heating_type: [gas_condensing_boiler, gas_noncondensing_boiler, electric_storage, electric_direct, air_source_heat_pump, other_fuel]
+  smart_controls: [none, programmer_only, programmer_thermostat, programmer_thermostat_trvs, smart_thermostat, smart_zoned]
+  roof_orientation: [S, SE, SW, E, W, N]
+  roof_shading: [none, some, heavy]
+  value_source: [synthetic_avm, user_stated]
+  reading_type: [actual, estimated_by_supplier]
+
+upper_case_fields: [energy_rating, roof_orientation]
+
+aliases:
+  property_type: {semi: semi_detached, "semi-detached": semi_detached, terrace: mid_terrace, terraced: mid_terrace, "mid-terrace": mid_terrace, "end-terrace": end_terrace, apartment: flat}
+  heating_type: {heat_pump: air_source_heat_pump, ashp: air_source_heat_pump, gas_boiler: gas_condensing_boiler, storage_heaters: electric_storage}
+  glazing: {double: double_post2002}
+  smart_controls: {smart: smart_thermostat}
+
+ranges:
+  floor_area_m2: [20, 600]
+  bedrooms: [0, 8]
+  energy_rating_points: [1, 100]
+  loft_insulation_mm: [0, 400]
+  solar_kwp: [0, 15]
+  current_value_estimate: [30000, 5000000]
+  electricity_import_kwh: [0, 5000]
+  gas_kwh: [0, 10000]
+
+units:                        # optional `unit` column on usage / `area_unit` on properties
+  energy: {kwh: 1.0, mwh: 1000.0}
+  area: {m2: 1.0, ft2: 0.092903}
+
+duplicates:
+  tolerance: 0.10             # differ by <= 10% -> mean kept; more -> both NaN + DUPLICATE_CONFLICT
+
+outliers:
+  median_multiple: 10         # > 10x median of the property's other months for that fuel ...
+  min_kwh: 1500               # ... and above this -> NaN + OUTLIER_READING
+
+bedroom_area:
+  min_bedrooms: 5
+  max_area_m2: 50
+
+pii_column_patterns: [name, address, email, dob, birth, phone, postcode, surname]
+
+messages:
+  REQ_PROPERTY_ID: "property_id is missing or duplicated"
+  ENUM: "value not in the allowed set; treated as missing"
+  RANGE: "value outside the valid range; treated as missing"
+  RANGE_FLOOR_AREA: "floor area outside 20-600 m2; treated as missing"
+  RANGE_KWP: "solar capacity outside 0-15 kWp; a default capacity is used"
+  CONFLICT_BEDROOMS_AREA: "bedroom count is implausible for the floor area; bedrooms ignored"
+  RATING_POINTS_BAND: "rating points do not match the rating band; band kept, points ignored"
+  CONFLICT_HEATING_GAS: "a heat pump is recorded but gas use looks like gas heating; heating type treated as uncertain"
+  SOLAR_NO_KWP: "solar panels recorded without a capacity; a default capacity is used"
+  GAS_NO_CONNECTION: "gas use recorded although no gas connection is recorded"
+  RATING_MAY_BE_OUTDATED: "the recorded energy rating is older than a completed retrofit and may be out of date"
+  RATING_FEATURE_CONFLICT: "the recorded rating differs strongly from what the home's features indicate"
+  USAGE_UNUSUAL: "metered use is unusual compared with similar homes"
+  UNSUPPORTED_FUEL: "heating fuel is not electricity or mains gas; savings cannot be estimated"
+  DUPLICATE_CONFLICT: "duplicate readings for one month disagree by more than 10%; both excluded"
+  DUPLICATE_MERGED: "duplicate readings for one month were merged"
+  NEGATIVE_READING: "negative meter reading; treated as missing"
+  OUTLIER_READING: "implausibly high meter reading; treated as missing"
+  FLAT_POSITION_DEFAULT: "flat position unknown; assumed mid-floor"

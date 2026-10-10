@@ -1,0 +1,447 @@
+{
+ "by_cohort": {
+  "1919_1944|bungalow": {
+   "consumption_intensity": 52.059,
+   "energy_efficiency": 47.0,
+   "heating_system": 60.0,
+   "insulation": 46.0,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 65.0,
+   "windows_glazing": 70.0
+  },
+  "1919_1944|detached": {
+   "consumption_intensity": 58.809,
+   "energy_efficiency": 62.0,
+   "heating_system": 60.0,
+   "insulation": 52.7,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "1919_1944|end_terrace": {
+   "consumption_intensity": 59.922,
+   "energy_efficiency": 62.0,
+   "heating_system": 60.0,
+   "insulation": 49.0,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "1919_1944|flat": {
+   "consumption_intensity": 62.137,
+   "energy_efficiency": 75.0,
+   "heating_system": 60.0,
+   "insulation": 35.2,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "1919_1944|mid_terrace": {
+   "consumption_intensity": 57.737,
+   "energy_efficiency": 62.0,
+   "heating_system": 60.0,
+   "insulation": 46.0,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "1919_1944|semi_detached": {
+   "consumption_intensity": 57.817,
+   "energy_efficiency": 62.0,
+   "heating_system": 60.0,
+   "insulation": 46.0,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "1945_1964|bungalow": {
+   "consumption_intensity": 45.587,
+   "energy_efficiency": 62.0,
+   "heating_system": 60.0,
+   "insulation": 49.0,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "1945_1964|detached": {
+   "consumption_intensity": 64.807,
+   "energy_efficiency": 62.0,
+   "heating_system": 60.0,
+   "insulation": 49.686,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "1945_1964|end_terrace": {
+   "consumption_intensity": 61.332,
+   "energy_efficiency": 62.0,
+   "heating_system": 60.0,
+   "insulation": 46.0,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "1945_1964|flat": {
+   "consumption_intensity": 59.06,
+   "energy_efficiency": 75.0,
+   "heating_system": 60.0,
+   "insulation": 50.909,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "1945_1964|mid_terrace": {
+   "consumption_intensity": 62.729,
+   "energy_efficiency": 75.0,
+   "heating_system": 60.0,
+   "insulation": 52.0,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "1945_1964|semi_detached": {
+   "consumption_intensity": 60.668,
+   "energy_efficiency": 62.0,
+   "heating_system": 60.0,
+   "insulation": 46.0,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 65.0,
+   "windows_glazing": 70.0
+  },
+  "1965_1982|bungalow": {
+   "consumption_intensity": 56.631,
+   "energy_efficiency": 62.0,
+   "heating_system": 60.0,
+   "insulation": 52.222,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 65.0,
+   "windows_glazing": 70.0
+  },
+  "1965_1982|detached": {
+   "consumption_intensity": 64.148,
+   "energy_efficiency": 62.0,
+   "heating_system": 60.0,
+   "insulation": 55.267,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 65.0,
+   "windows_glazing": 70.0
+  },
+  "1965_1982|end_terrace": {
+   "consumption_intensity": 62.649,
+   "energy_efficiency": 62.0,
+   "heating_system": 60.0,
+   "insulation": 52.0,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "1965_1982|flat": {
+   "consumption_intensity": 58.792,
+   "energy_efficiency": 75.0,
+   "heating_system": 60.0,
+   "insulation": 50.909,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "1965_1982|mid_terrace": {
+   "consumption_intensity": 59.438,
+   "energy_efficiency": 75.0,
+   "heating_system": 60.0,
+   "insulation": 52.0,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "1965_1982|semi_detached": {
+   "consumption_intensity": 60.786,
+   "energy_efficiency": 62.0,
+   "heating_system": 60.0,
+   "insulation": 52.0,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "1983_1995|bungalow": {
+   "consumption_intensity": 54.387,
+   "energy_efficiency": 62.0,
+   "heating_system": 60.0,
+   "insulation": 52.0,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "1983_1995|detached": {
+   "consumption_intensity": 66.152,
+   "energy_efficiency": 62.0,
+   "heating_system": 60.0,
+   "insulation": 52.222,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 65.0,
+   "windows_glazing": 70.0
+  },
+  "1983_1995|end_terrace": {
+   "consumption_intensity": 62.96,
+   "energy_efficiency": 75.0,
+   "heating_system": 60.0,
+   "insulation": 73.0,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "1983_1995|flat": {
+   "consumption_intensity": 63.533,
+   "energy_efficiency": 75.0,
+   "heating_system": 60.0,
+   "insulation": 50.909,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "1983_1995|mid_terrace": {
+   "consumption_intensity": 67.027,
+   "energy_efficiency": 75.0,
+   "heating_system": 60.0,
+   "insulation": 55.267,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 65.0,
+   "windows_glazing": 70.0
+  },
+  "1983_1995|semi_detached": {
+   "consumption_intensity": 66.803,
+   "energy_efficiency": 75.0,
+   "heating_system": 60.0,
+   "insulation": 52.0,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "1996_2011|bungalow": {
+   "consumption_intensity": 55.399,
+   "energy_efficiency": 75.0,
+   "heating_system": 60.0,
+   "insulation": 68.722,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "1996_2011|detached": {
+   "consumption_intensity": 72.77,
+   "energy_efficiency": 75.0,
+   "heating_system": 60.0,
+   "insulation": 58.222,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 65.0,
+   "windows_glazing": 70.0
+  },
+  "1996_2011|end_terrace": {
+   "consumption_intensity": 70.036,
+   "energy_efficiency": 75.0,
+   "heating_system": 60.0,
+   "insulation": 68.0,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 65.0,
+   "windows_glazing": 70.0
+  },
+  "1996_2011|flat": {
+   "consumption_intensity": 71.415,
+   "energy_efficiency": 75.0,
+   "heating_system": 60.0,
+   "insulation": 62.222,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 65.0,
+   "windows_glazing": 70.0
+  },
+  "1996_2011|mid_terrace": {
+   "consumption_intensity": 74.682,
+   "energy_efficiency": 75.0,
+   "heating_system": 60.0,
+   "insulation": 68.0,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "1996_2011|semi_detached": {
+   "consumption_intensity": 70.016,
+   "energy_efficiency": 75.0,
+   "heating_system": 60.0,
+   "insulation": 68.508,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "2012_plus|bungalow": {
+   "consumption_intensity": 82.726,
+   "energy_efficiency": 75.0,
+   "heating_system": 60.0,
+   "insulation": 100.0,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 57.5,
+   "windows_glazing": 70.0
+  },
+  "2012_plus|detached": {
+   "consumption_intensity": 83.256,
+   "energy_efficiency": 86.0,
+   "heating_system": 60.0,
+   "insulation": 100.0,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 65.0,
+   "windows_glazing": 70.0
+  },
+  "2012_plus|end_terrace": {
+   "consumption_intensity": 80.547,
+   "energy_efficiency": 86.0,
+   "heating_system": 60.0,
+   "insulation": 100.0,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 65.0,
+   "windows_glazing": 70.0
+  },
+  "2012_plus|flat": {
+   "consumption_intensity": 76.841,
+   "energy_efficiency": 86.0,
+   "heating_system": 60.0,
+   "insulation": 100.0,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 57.5,
+   "windows_glazing": 70.0
+  },
+  "2012_plus|mid_terrace": {
+   "consumption_intensity": 83.229,
+   "energy_efficiency": 86.0,
+   "heating_system": 60.0,
+   "insulation": 100.0,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "2012_plus|semi_detached": {
+   "consumption_intensity": 80.563,
+   "energy_efficiency": 86.0,
+   "heating_system": 60.0,
+   "insulation": 100.0,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 65.0,
+   "windows_glazing": 70.0
+  },
+  "pre_1919|bungalow": {
+   "consumption_intensity": 34.611,
+   "energy_efficiency": 47.0,
+   "heating_system": 60.0,
+   "insulation": 41.986,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 50.0
+  },
+  "pre_1919|detached": {
+   "consumption_intensity": 48.607,
+   "energy_efficiency": 47.0,
+   "heating_system": 60.0,
+   "insulation": 41.986,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "pre_1919|end_terrace": {
+   "consumption_intensity": 44.358,
+   "energy_efficiency": 47.0,
+   "heating_system": 60.0,
+   "insulation": 41.986,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 65.0,
+   "windows_glazing": 50.0
+  },
+  "pre_1919|flat": {
+   "consumption_intensity": 52.672,
+   "energy_efficiency": 62.0,
+   "heating_system": 60.0,
+   "insulation": 14.0,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "pre_1919|mid_terrace": {
+   "consumption_intensity": 51.584,
+   "energy_efficiency": 62.0,
+   "heating_system": 60.0,
+   "insulation": 41.986,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "pre_1919|semi_detached": {
+   "consumption_intensity": 42.64,
+   "energy_efficiency": 47.0,
+   "heating_system": 60.0,
+   "insulation": 41.986,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 65.0,
+   "windows_glazing": 50.0
+  }
+ },
+ "by_type": {
+  "bungalow": {
+   "consumption_intensity": 52.228,
+   "energy_efficiency": 62.0,
+   "heating_system": 60.0,
+   "insulation": 52.0,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 65.0,
+   "windows_glazing": 70.0
+  },
+  "detached": {
+   "consumption_intensity": 64.301,
+   "energy_efficiency": 62.0,
+   "heating_system": 60.0,
+   "insulation": 52.7,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "end_terrace": {
+   "consumption_intensity": 62.541,
+   "energy_efficiency": 62.0,
+   "heating_system": 60.0,
+   "insulation": 52.222,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "flat": {
+   "consumption_intensity": 62.658,
+   "energy_efficiency": 75.0,
+   "heating_system": 60.0,
+   "insulation": 50.909,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "mid_terrace": {
+   "consumption_intensity": 62.356,
+   "energy_efficiency": 75.0,
+   "heating_system": 60.0,
+   "insulation": 52.7,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  },
+  "semi_detached": {
+   "consumption_intensity": 60.724,
+   "energy_efficiency": 62.0,
+   "heating_system": 60.0,
+   "insulation": 52.222,
+   "renewable_energy": 0.0,
+   "smart_energy_management": 50.0,
+   "windows_glazing": 70.0
+  }
+ },
+ "global": {
+  "consumption_intensity": 61.761,
+  "energy_efficiency": 62.0,
+  "heating_system": 60.0,
+  "insulation": 52.0,
+  "renewable_energy": 0.0,
+  "smart_energy_management": 50.0,
+  "windows_glazing": 70.0
+ }
+}

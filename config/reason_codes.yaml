@@ -1,0 +1,109 @@
+# Templated, deterministic texts (J.6). The LLM may paraphrase these but may not add claims.
+version: "1.0"
+
+recommendation:
+  loft_insulation:
+    code: LOFT_LOW_INSULATION
+    text: "Your loft has {loft_mm} mm of insulation; topping up to {target_mm} mm reduces heat loss through the roof."
+  cavity_wall_insulation:
+    code: CAVITY_UNFILLED
+    text: "Your cavity walls are recorded as {wall_insulation_text}; filling the cavity reduces heat loss through the walls."
+  solid_wall_insulation:
+    code: SOLID_WALL_UNINSULATED
+    text: "Your solid walls are recorded as {wall_insulation_text}; insulating them reduces heat loss through the walls."
+  double_glazing:
+    code: GLAZING_UPGRADE
+    text: "Your windows are recorded as {glazing_text}; modern double glazing loses less heat."
+  smart_thermostat:
+    code: CONTROLS_UPGRADE
+    text: "Your heating controls are recorded as {controls_text}; a smart thermostat heats the home only when needed."
+  air_source_heat_pump:
+    code: HEAT_PUMP_REPLACES_HEATING
+    text: "A heat pump would replace your {heating_text}; it uses electricity instead, so gas use falls and electricity use rises."
+  air_source_heat_pump_electric:
+    code: HEAT_PUMP_REPLACES_RESISTIVE
+    text: "A heat pump would replace your {heating_text}; it delivers the same heat with less electricity."
+  solar_pv:
+    code: SOLAR_REDUCES_IMPORTS
+    text: "Your roof faces {orientation}; solar panels would cover part of your electricity use and reduce grid imports."
+
+caveats:
+  insulate_first: "Insulate first: the fabric is not yet adequate, so the heat pump would run less efficiently."
+  conservation_area: "The home is in a conservation area; consent may be needed."
+  listed_building: "The home is a listed building; consent is needed and options may be restricted."
+  default_input: "This estimate relies on a default assumption for a missing input."
+  estimated_baseline: "Estimated from typical usage for similar homes because meter data are missing."
+  cost_unverified: "Costs are indicative and unverified."
+  low_optional: "Small estimated saving; optional."
+  shading_default: "Roof shading is unknown; some shading was assumed."
+
+status:
+  feasible: "feasible"
+  already_installed: "already installed"
+  not_applicable: "not applicable to this home"
+  blocked_by_constraint: "blocked by a constraint"
+  needs_information: "more information needed"
+  no_net_saving: "no net saving estimated"
+
+feasibility_reasons:
+  ROOF_NOT_LOFT: "the home has no pitched loft to insulate"
+  LOFT_ADEQUATE: "the loft already has adequate insulation"
+  WALL_NOT_CAVITY: "the walls are not cavity walls"
+  WALL_NOT_SOLID: "the walls are not solid walls"
+  WALL_ALREADY_INSULATED: "the walls are already insulated"
+  LISTED_BUILDING: "the home is a listed building"
+  GLAZING_ALREADY_MODERN: "the windows are already modern double or triple glazing"
+  HEATING_NOT_WET: "the heating is not a wet (radiator) system"
+  CONTROLS_ALREADY_SMART: "smart heating controls are already installed"
+  ALREADY_HEAT_PUMP: "a heat pump is already installed"
+  UNSUPPORTED_FUEL: "the heating fuel is not supported by this tool"
+  NO_OUTDOOR_SPACE: "there is no outdoor space for the unit"
+  IS_FLAT: "flat"
+  ALREADY_SOLAR: "solar panels are already installed"
+  ROOF_FACES_NORTH: "the roof faces north"
+  NO_OWN_ROOF: "there is another dwelling above"
+  HEAVY_SHADING: "the roof is heavily shaded"
+  NO_NET_SAVING: "no net saving in purchased energy is estimated"
+  CUSTOMER_CONSTRAINT: "excluded by a constraint you gave us"
+  CUSTOMER_DECLINED: "you previously declined this measure"
+
+issues:
+  UNINSULATED_CAVITY: "Uninsulated cavity walls"
+  UNINSULATED_SOLID_WALL: "Uninsulated solid walls"
+  PARTIAL_WALL_INSULATION: "Walls only partly insulated"
+  POOR_WALL_INSULATION: "Walls lose more heat than modern standards"
+  LOW_LOFT_INSULATION: "Little loft insulation"
+  POOR_ROOF_INSULATION: "Poorly insulated roof"
+  SINGLE_GLAZING: "Single glazing"
+  POOR_GLAZING: "Older glazing with high heat loss"
+  OLD_BOILER: "Older non-condensing gas boiler"
+  RESISTIVE_HEATING: "Electric resistive heating"
+  NO_RENEWABLES: "No on-site renewable generation although solar looks feasible"
+  NO_HEATING_CONTROLS: "Basic or no heating controls"
+  HIGH_INTENSITY: "High energy use per m² compared with similar homes"
+  RATING_MAY_BE_OUTDATED: "Recorded energy rating may be out of date"
+  RATING_FEATURE_CONFLICT: "Recorded rating differs from what the home's features indicate"
+  CONFLICT_HEATING_GAS: "Recorded heating type conflicts with gas usage"
+  USAGE_UNUSUAL: "Metered use is unusual compared with similar homes"
+  UNSUPPORTED_FUEL: "Heating fuel not supported"
+  DATA_INCOMPLETE: "Important information is missing"
+
+field_text:
+  wall_insulation: {none: "uninsulated", partial: "partly insulated", insulated: "insulated"}
+  glazing: {single: "single glazing", secondary: "secondary glazing", double_pre2002: "older (pre-2002) double glazing", double_post2002: "modern double glazing", triple: "triple glazing"}
+  smart_controls: {none: "no controls", programmer_only: "a programmer only", programmer_thermostat: "a programmer and room thermostat", programmer_thermostat_trvs: "a programmer, room thermostat and radiator valves", smart_thermostat: "a smart thermostat", smart_zoned: "smart zoned controls"}
+  heating_type: {gas_condensing_boiler: "condensing gas boiler", gas_noncondensing_boiler: "non-condensing gas boiler", electric_storage: "electric storage heaters", electric_direct: "direct electric heating", air_source_heat_pump: "air-source heat pump", other_fuel: "non-gas, non-electric heating"}
+  roof_orientation: {S: "south", SE: "south-east", SW: "south-west", E: "east", W: "west", N: "north"}
+
+measure_keywords:             # used by the LLM validator and the keyword what-if parser
+  loft_insulation: ["loft insulation", "loft", "roof insulation"]
+  cavity_wall_insulation: ["cavity wall insulation", "cavity wall", "cavity"]
+  solid_wall_insulation: ["solid wall insulation", "solid wall"]
+  double_glazing: ["double glazing", "glazing", "new windows", "windows"]
+  smart_thermostat: ["smart thermostat", "thermostat", "smart controls", "smart heating controls"]
+  air_source_heat_pump: ["air-source heat pump", "air source heat pump", "heat pump"]
+  solar_pv: ["solar pv", "solar panels", "solar"]
+
+measure_groups:               # generic words in what-if questions
+  insulation: [loft_insulation, cavity_wall_insulation, solid_wall_insulation]
+  "wall insulation": [cavity_wall_insulation, solid_wall_insulation]

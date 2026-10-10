@@ -1,0 +1,196 @@
+# Engine-side assumptions (Appendix B). Status "unverified" unless a source is named.
+# The synthetic world has its OWN copy of physics parameters in generator.yaml (independence design, G.1.2).
+version: "1.0"
+
+usage_window:
+  start: "2024-10"
+  end: "2026-09"
+valuation_date: "2026-09-30"
+
+annualisation:                # H.3
+  window_months: 12
+  min_months: 6               # fewer valid months -> annual value missing (never zero)
+  measured_months: 9          # >= 9 measured, 6-8 measured_partial
+  share_fit_min_properties: 20
+
+rating_bands:                 # official SAP -> EPC band boundaries (Appendix A)
+  thresholds: {A: 92, B: 81, C: 69, D: 55, E: 39, F: 21, G: 1}
+  midpoints: {A: 96, B: 86, C: 75, D: 62, E: 47, F: 30, G: 11}
+
+efficiencies:                 # H.4 assumed efficiencies for the end-use split
+  gas_condensing_boiler: 0.85
+  gas_noncondensing_boiler: 0.72
+  electric_storage: 1.0
+  electric_direct: 1.0
+  heat_pump_space: 2.8        # median SPF H4, Electrification of Heat demonstration (Appendix A)
+  heat_pump_dhw: 2.5
+  uncertain_gas_heating: 0.85 # used when recorded heating conflicts with gas usage
+
+end_use:
+  default_nonheat_gas_share: 0.20
+  cooking_gas_kwh: 300
+  dhw_useful_base_kwh: 400
+  dhw_useful_per_occupant_kwh: 450
+  default_occupants: 2.4
+  electric_base_share: 0.35
+  summer_months: [6, 7, 8]
+  min_summer_months: 2
+  gas_heating_evidence_kwh: 2000   # gas above this with unknown heating -> treated as gas heated (default)
+
+solar:
+  yield_kwh_per_kwp: 900
+  self_consumption_share: 0.45     # McKenna, Pless & Darby (2018) average (Appendix A)
+  self_consumption_cap_of_demand: 0.6
+  orientation_factor: {S: 1.0, SE: 0.95, SW: 0.95, E: 0.80, W: 0.80, N: 0.60}
+  shading_factor: {none: 1.0, some: 0.85, heavy: 0.6}
+  default_shading: some
+  default_orientation_factor: 0.80   # existing PV with unknown orientation
+  default_kwp_by_type: {detached: 4.0, semi_detached: 3.5, end_terrace: 3.5, bungalow: 3.5, mid_terrace: 3.0}
+  default_kwp_fallback: 3.5
+  pv_monthly_shares: [0.03, 0.05, 0.08, 0.11, 0.13, 0.13, 0.13, 0.11, 0.09, 0.06, 0.04, 0.04]
+
+uncertainty:                  # L.7 parameter bounds for low/high ranges
+  fraction_low: 0.7
+  fraction_high: 1.2
+  scop_low: 2.2
+  scop_high: 3.4
+  yield_low: 800
+  yield_high: 1000
+  self_consumption_low: 0.30
+  self_consumption_high: 0.55
+
+fabric_adequacy:              # G.6.6 rule applied to the observed state
+  min_loft_mm: 100
+  max_wall_u: 0.6
+  inadequate_glazing: [single]
+
+u_values:                     # W/m2K, engine copy without noise (I.5.3)
+  wall:
+    solid: {none: 2.0, partial: 1.0, insulated: 0.35}
+    cavity: {none: 1.5, partial: 1.0, insulated: 0.55}
+    cavity_insulated_by_age: {"1996_2011": 0.45, "2012_plus": 0.28}
+    timber_system_by_age: {default: 0.45, "1996_2011": 0.35, "2012_plus": 0.28}
+  loft_mm: [[0, 2.3], [25, 1.0], [50, 0.68], [100, 0.40], [150, 0.30], [200, 0.21], [270, 0.16], [300, 0.14]]
+  flat_roof_by_age:
+    pre_1919: 1.5
+    "1919_1944": 1.5
+    "1945_1964": 1.5
+    "1965_1982": 1.5
+    "1983_1995": 0.35
+    "1996_2011": 0.35
+    "2012_plus": 0.18
+  glazing: {single: 4.8, secondary: 2.9, double_pre2002: 2.8, double_post2002: 2.0, triple: 1.4}
+
+suitability:                  # J.4
+  high_min_share: 0.05
+  medium_min_share: 0.02
+
+detector:                     # J.9
+  subscore_issue_threshold: 40
+  heating_issue_threshold: 55      # non-condensing boilers (50) are reported as OLD_BOILER
+  smart_issue_max: 25
+  high_intensity_ratio: 1.3
+  high_intensity_subscore: 50
+  max_issues_shown: 5
+
+conflicts:                    # H.2
+  hp_gas_annual_kwh: 2000
+  hp_gas_beyond_cooking_kwh: 1500
+  rating_points_gap: 20
+  usage_ratio_low: 0.4
+  usage_ratio_high: 2.5
+
+value:                        # N.2
+  bootstrap_replicates: 200
+  percentile_low: 10
+  percentile_high: 90
+  pct_round_step: 0.5
+  gbp_round_step: 1000
+  region_groups:
+    north: [north_east, north_west, yorkshire_humber]
+    midlands_wales: [east_midlands, west_midlands, wales]
+    south: [east_of_england, south_east, south_west]
+    london: [london]
+  method_note: >-
+    Indicative estimate of potential property-value impact, based on relationships between energy
+    ratings and sale prices in our synthetic dataset, holding location, size, type, age and market
+    conditions constant. It is not a valuation, not guaranteed, and not proof that retrofits cause
+    price increases.
+
+models:                       # K.2-K.5
+  seed: 42
+  split: {train: 0.70, validation: 0.15, test: 0.15}
+  floor_area_bands: [60, 90, 120, 160]
+  hgb: {max_iter: 300, learning_rate: 0.05, max_leaf_nodes: 31, l2_regularization: 1.0, validation_fraction: 0.1}
+  hgb_grid: {learning_rate: [0.03, 0.05, 0.1], max_leaf_nodes: [15, 31, 63]}
+  ridge_alpha: 1.0
+
+naive_baseline:               # K.6 (r1) the brief's illustrative midpoints
+  space_heating_share_of_gas: 0.80
+  loft_insulation: 0.15
+  cavity_wall_insulation: 0.15
+  solid_wall_insulation: 0.15
+  double_glazing: 0.10
+  smart_thermostat: 0.075
+  air_source_heat_pump_of_purchased: 0.20
+  solar_pv_of_imports: 0.275
+
+default_monthly_shares:       # used only before artifacts/profiles/monthly_shares.csv exists (tagged default)
+  gas_heating: [0.150, 0.133, 0.118, 0.087, 0.057, 0.034, 0.027, 0.027, 0.041, 0.079, 0.110, 0.137]
+  elec_base: [0.090, 0.090, 0.083, 0.083, 0.077, 0.077, 0.077, 0.077, 0.083, 0.083, 0.090, 0.090]
+  elec_heating: [0.140, 0.126, 0.112, 0.086, 0.062, 0.045, 0.040, 0.040, 0.050, 0.081, 0.103, 0.115]
+  elec_pv: [0.105, 0.098, 0.085, 0.075, 0.066, 0.064, 0.064, 0.068, 0.076, 0.088, 0.103, 0.108]
+  flat: [0.0833333, 0.0833333, 0.0833333, 0.0833333, 0.0833333, 0.0833333, 0.0833333, 0.0833333, 0.0833333, 0.0833333, 0.0833333, 0.0833337]
+
+memory:                       # optional customer-memory extension (J.10)
+  external_works_measures: [solid_wall_insulation, air_source_heat_pump, solar_pv]
+  constraint_keywords: [no_external_works, budget_max_gbp, blocked_measures]
+
+llm:                          # explanation layer (Section P)
+  prompt_version: "1.0"
+  max_words: 180
+  default_model: claude-opus-5-5      # used only when LLM_PROVIDER=anthropic and LLM_MODEL is empty
+  default_effort: low
+  default_max_output_tokens: 2000
+  forbidden_phrases: ["guarantee", "will increase your", "proven", "definitely save", "certain to"]
+  recommend_patterns: ["recommend", "we suggest", "i suggest", "should install", "should add", "should fit", "should get", "is suitable", "good option", "worth installing"]
+  unsupported_measure_terms: ["battery", "wind turbine", "biomass", "underfloor heating", "hydrogen boiler", "ground source", "ground-source", "external shutters"]
+  refusal_keywords: ["mortgage", "interest rate", "loan", "remortgage", "legal", "solicitor", "lawyer", "tax", "insurance", "which installer", "installer near", "recommend an installer", "grant", "subsidy", "stock", "invest", "sue"]
+  conflict_rules: [CONFLICT_HEATING_GAS, RATING_MAY_BE_OUTDATED, RATING_FEATURE_CONFLICT, USAGE_UNUSUAL, GAS_NO_CONNECTION, CONFLICT_BEDROOMS_AREA, UNSUPPORTED_FUEL, SOLAR_NO_KWP]
+  eval_targets: {groundedness_min: 0.90, factual_accuracy_min: 0.90, unsupported_claim_rate_max: 0.05}
+  component_labels:
+    energy_efficiency: ["F_C_EE", "Energy efficiency"]
+    consumption_intensity: ["F_C_EUI", "Consumption intensity"]
+    insulation: ["F_C_INS", "Insulation"]
+    heating_system: ["F_C_HEAT", "Heating system"]
+    windows_glazing: ["F_C_GLZ", "Windows and glazing"]
+    renewable_energy: ["F_C_REN", "Renewable energy"]
+    smart_energy_management: ["F_C_SMART", "Smart energy management"]
+  field_labels:
+    region: "Region"
+    property_type: "Property type"
+    age_band: "Age band"
+    floor_area_m2: "Floor area"
+    energy_rating: "Energy rating"
+    wall_type: "Wall type"
+    wall_insulation: "Wall insulation"
+    roof_type: "Roof type"
+    loft_insulation_mm: "Loft insulation depth"
+    glazing: "Glazing type"
+    heating_type: "Heating type"
+    smart_controls: "Heating controls"
+    has_outdoor_space: "Outdoor space"
+    roof_orientation: "Roof orientation"
+    current_value_estimate: "Current value estimate"
+    electricity_usage: "Electricity meter data"
+    gas_usage: "Gas meter data"
+
+bill:                         # optional bill view (L.11)
+  round_step_gbp: 10
+  note: "simple payback, ignores price changes and grants; standing charges excluded"
+
+limitations:
+  - "Savings are estimates based on past usage; actual results vary with weather, behaviour and installation quality."
+  - "Carbon uses annual-average DESNZ factors (operational, location-based); embodied and lifecycle emissions are excluded."
+  - "All data are synthetic; agreement with synthetic labels does not establish real-world accuracy."
+  - "Retrofit costs are indicative team assumptions and are unverified."
